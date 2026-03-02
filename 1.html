@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>8 Наурызға шақыру ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>8 Наурыз құтты болсын, Динара! 💐</h1>
+    <p>Динара, сені серуенге шақырғым келеді. Келісесің бе? 😊</p>
+
+    <div class="buttons">
+        <button id="yesBtn">Иә ❤️</button>
+        <button id="noBtn">Жоқ 🙈</button>
+    </div>
+
+    <div id="loveMessage" class="hidden">
+        💖 Динара, мен сені 8 наурызда күтемін! 💖
+    </div>
+</div>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const loveMessage = document.getElementById("loveMessage");
+
+// Жоқ батырмасы қашады
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+// Иә басқанда
+yesBtn.addEventListener("click", function() {
+
+    createHearts();
+    loveMessage.classList.remove("hidden");
+
+    // 2 секундтан кейін Instagram ашылады
+    setTimeout(function(){
+        window.location.href = "https://www.instagram.com/_zhakszldsvv_/";
+    }, 2000);
+});
+
+// Жүрек жасау
+function createHearts() {
+    for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+</script>
+
+</body>
+</html>
